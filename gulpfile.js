@@ -70,7 +70,8 @@ gulp.task('responsiveScripts', function() {
     .pipe(concat('responsive.js'))
     .pipe(uglify())
     .pipe(gulp.dest('_site/assets/js'))
-    .pipe(browserSync.reload({stream:true}));
+    .pipe(browserSync.reload({stream:true}))
+    .pipe(gulp.dest('assets/js'));
 });
 
 /**

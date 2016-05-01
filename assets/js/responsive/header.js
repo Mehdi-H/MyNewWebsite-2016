@@ -4,6 +4,9 @@ $(document).on('ready', function () {
     $header.responsiveHeader();
 });
 
+/**
+ * Modifie la classe de l'icône hamburger pour (dé)plier la navigation.
+ */
 (function( $ ){
     $.fn.responsiveHeader = function() {
         $(this).find('.mobile-nav-hamburger').on('click touch', function () {

@@ -1,15 +1,22 @@
+// === HEADER
+
+// == Variables
 $header-width: 140px
 $header-padding: 50px
 $logo-height: 80px
 $hamburgerH: 30px
 
-.home-wrap
+// == Règles
 
-    header  //header homepage
+// = Home page wrapper
+.home-wrap
+    // = Header
+    header
         width: $header-width
         background: white
         padding: $header-padding 0
 
+        // = wrapper dans le header
         .header-position
             position: fixed
             top: $header-padding
@@ -19,6 +26,8 @@ $hamburgerH: 30px
             display: flex
             flex-direction: column
             justify-content: space-between
+
+            // = Ordres des éléments
             h1.logo
                 order: 1
             nav.site-nav
@@ -28,8 +37,10 @@ $hamburgerH: 30px
             a.email-link
                 order: 4
 
-        .logo  // logo in header
+        // = logo-mh
+        .logo
             +hide-text
+            height: $logo-height
             padding: 0
             margin: 0
             background:
@@ -37,27 +48,30 @@ $hamburgerH: 30px
                 repeat: no-repeat
                 position: center
                 size: contain
-            height: $logo-height
 
-        .site-nav  // site-nav links in header
+        // = navigation
+        .site-nav
             height: 167px
             overflow: hidden
+            opacity: 1
             transform: translateY(0%)
-            transition: height 0.3s ease-in-out
-            transition: transform 0.3s 0.3s
+            transition: opacity 0.3s ease-in-out
+            transition: height 0.3s 0.3s
 
+            // = liste de liens
             ul
                 list-style: none
                 margin: $header-padding 0
                 padding: 0 30px 0 0
                 text-align: right
 
+                //  = liens
                 li
                     margin-bottom: 7px
-
                     &:last-child
                         margin-bottom: 0
 
+        // Icone hamburger responsive
         .mobile-nav-hamburger
             display: none
             width: $hamburgerH
@@ -66,6 +80,7 @@ $hamburgerH: 30px
             align-items: center
             cursor: pointer
 
+            // = les 3 barres
             span,
             span::before,
             span::after
@@ -77,6 +92,7 @@ $hamburgerH: 30px
                 position: relative
                 transition: all 0.4s ease-in-out
 
+            // = Animation des 3 barres
             span::before
                 top: $hamburgerH/3
             span::after
@@ -90,9 +106,13 @@ $hamburgerH: 30px
                 top: 0
             &.is-open span::before
                 transform: rotate(-45deg)
+                top: 2px
 
-
-
+// == Responsive
+// Le header passe de vertical à horizontal,
+// ses élements colonnes => en ligne,
+// l'icone hamburger apparait et devient clickable,
+// la naviagtion apparaît sur click de l'icône.
 @media (max-width: 775px)
     .home-wrap
         header
@@ -119,6 +139,7 @@ $hamburgerH: 30px
                 display: flex
                 &.is-open ~ .site-nav
                     transform: translateY(-120%)
+                    opacity: 0
                     transition: transform 0s ease-in-out
                     height: 0px
                     transition: height 1s ease-in-out
