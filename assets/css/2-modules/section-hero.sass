@@ -13,13 +13,17 @@ section.hero
         justify-content: flex-start
         padding-left: 170px
         h1
+            @include animation('fadeIn 2s')
             font:
                 size: 40px
                 weight: 400
-            &::first-letter
-                text-transform: capitalize
             &::after
                 content: ','
+        h2
+            text-align: right
+            font:
+                size: 30px
+                weight: 300
 
 
 @media (max-width: 1200px)
@@ -28,19 +32,38 @@ section.hero
             size: cover
             position: center bottom
         .flex
-            justify-content: flex-start
+            justify-content: center
+            align-items: center
         .col-1
             margin-left: 50%
             padding-left: 0
 
 @media (max-width: 600px)
-    section.hero .flex .col-1 h1
-        font:
-            size: 30px
-            weight: 400
+    section.hero .flex .col-1
+        h1
+            font:
+                size: 28px
+                weight: 400
+        h2
+            font:
+                size: 20px
+                weight: 300
 
 @media (max-width: 400px)
-    section.hero .flex .col-1 h1
-        font:
-            size: 22px
-            weight: 400
+    section.hero .flex .col-1
+        h1
+            font:
+                size: 22px
+                weight: 400
+        h2
+            font:
+                size: 15px
+                weight: 300
+
+// == Keyframes
+
+// @include keyframes(fadeIn)
+//   from
+//     @include transform(scale(0))
+//   to
+//     @include transform(scale(1))
