@@ -1,15 +1,17 @@
+mixin nav-content
+    ul
+        li: a(href="#about") About
+        li: a(href="#formation") Formation
+        li: a(href="#competences") Compétences
+        li: a(href="#xp-pro") Xp pro
+        li: a(href="#projets") Projets
+        li: a(href="#contact") Contact
+
 header
     .header-position
         h1.logo Mehdi Houacine
-
+        .mobile-nav-hamburger.is-close: span
         nav.site-nav
-            ul
-                li: a(href="#about") About
-                li: a(href="#formation") Formation
-                li: a(href="#competences") Compétences
-                li: a(href="#xp-pro") Xp pro
-                li: a(href="#projets") Projets
-                li: a(href="#contact") Contact
-        a(href="mailto:mehdi.houacine@edu.esiee.fr").email-link mh@mh.mh
+            +nav-content
 
-        .mobile-nav-hmbrger: span
+        a(href="mailto:mehdi.houacine@edu.esiee.fr").email-link mh@mh.mh
