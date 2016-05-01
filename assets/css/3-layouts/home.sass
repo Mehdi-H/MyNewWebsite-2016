@@ -4,3 +4,54 @@
 
     @media (max-width: 775px)
         display: block
+
+// === My column flex grid
+$colW: 300px
+$colMargin: 20px
+
+.home-sections
+    flex: 1
+
+    section
+        padding: 50px 0
+    // = Flex
+    .flex
+        display: flex
+        flex-direction: row
+        justify-content: center
+
+    .flex--center
+        justify-content: center
+        .col-1
+            background-color: limegreen
+    .flex--space-around
+        justify-content: space-around
+        .col-1
+            background-color: aquamarine
+    .order-first
+        order: -1
+
+    // = Cols
+    .col-1
+        background-color: red
+        max-width: $colW
+        margin: 0 10px
+
+    .col-2
+        max-width: 2*$colW + $colMargin
+        margin: 0 10px
+        background-color: honeydew
+
+    .col-50
+        width: 50%
+        background-color: deeppink
+
+
+@media (max-width: 2*($colW + $colMargin))
+    .home-sections
+        .flex
+            display: block
+        .col-1
+            max-width: 100%
+        .col-50
+            width: auto
