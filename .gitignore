@@ -25,7 +25,7 @@ $RECYCLE.BIN/
 _site/
 .sass-cache/
 .jekyll-metadata
-assets/img/
+assets/img/*
 
 
 ### Node ###
