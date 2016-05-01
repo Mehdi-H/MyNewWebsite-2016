@@ -1,9 +1,11 @@
-var gulp        = require('gulp');
-var browserSync = require('browser-sync');
-var sass   = require('gulp-sass');
-var prefix = require('gulp-autoprefixer');
-var cp  = require('child_process');
-var pug = require('gulp-pug');
+var   gulp = require('gulp'),
+        browserSync = require('browser-sync'),
+        sass   = require('gulp-sass'),
+        prefix = require('gulp-autoprefixer'),
+        cp  = require('child_process'),
+        pug = require('gulp-pug'),
+        uglify = require('gulp-uglify'),
+        concat = require('gulp-concat');
 
 var jekyll   = process.platform === 'win32' ? 'jekyll.bat' : 'jekyll';
 var messages = {
@@ -45,7 +47,6 @@ gulp.task('sass', function () {
     return gulp.src('assets/css/main.scss')
         .pipe(sass({
             includePaths: ['css'],
-            errLogToConsole: true,
             onError: browserSync.notify
         }))
         .pipe(prefix(['last 15 versions', '> 1%', 'ie 8', 'ie 7'], { cascade: true }))
@@ -64,6 +65,14 @@ gulp.task('pug', function(){
         .pipe(gulp.dest('_includes'));
 });
 
+gulp.task('responsiveScripts', function() {
+  return gulp.src('assets/js/responsive/*.js')
+    .pipe(concat('responsive.js'))
+    .pipe(uglify())
+    .pipe(gulp.dest('_site/assets/js'))
+    .pipe(browserSync.reload({stream:true}));
+});
+
 /**
  * Watch scss files for changes & recompile
  * Watch html/md files, run jekyll & reload BrowserSync
@@ -71,6 +80,7 @@ gulp.task('pug', function(){
 gulp.task('watch', function () {
     gulp.watch('assets/css/**', ['sass']);
     gulp.watch('_pugFiles/*.pug', ['pug']);
+    gulp.watch('assets/js/responsive/*.js', ['responsiveScripts']);
     gulp.watch([
         '*.html',
         '_layouts/*.html',
@@ -83,4 +93,4 @@ gulp.task('watch', function () {
  * Default task, running just `gulp` will compile the sass,
  * compile the jekyll site, launch BrowserSync & watch files.
  */
-gulp.task('default', ['browser-sync', 'watch']);
+gulp.task('default', ['browser-sync', 'responsiveScripts', 'watch']);

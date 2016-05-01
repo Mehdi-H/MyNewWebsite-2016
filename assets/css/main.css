@@ -3,6 +3,7 @@
  * 1. Change the default font family in all browsers (opinionated).
  * 2. Prevent adjustments of font size after orientation changes in IE and iOS.
  */
+@import url(https://fonts.googleapis.com/css?family=Fira+Sans);
 html {
   font-family: sans-serif;
   /* 1 */
@@ -364,6 +365,9 @@ textarea {
   font: inherit;
   /* 2 */ }
 
+body {
+  font-family: 'Fira Sans', serif; }
+
 .gigantic, .huge, .large, .bigger, .big,
 h1, h2, h3, h4, h5, h6 {
   color: #BD5248;
@@ -465,52 +469,85 @@ body {
         flex-direction: column;
     -ms-flex-pack: justify;
         justify-content: space-between; }
+    .home-wrap header .header-position h1.logo {
+      -ms-flex-order: 1;
+          order: 1; }
+    .home-wrap header .header-position nav.site-nav {
+      -ms-flex-order: 2;
+          order: 2; }
+    .home-wrap header .header-position .mobile-nav-hamburger {
+      -ms-flex-order: 3;
+          order: 3; }
+    .home-wrap header .header-position a.email-link {
+      -ms-flex-order: 4;
+          order: 4; }
   .home-wrap header .logo {
     overflow: hidden;
     text-indent: 101%;
     white-space: nowrap;
     padding: 0;
     margin: 0;
-    background-image: url("/assets/img/logo-mh.svg");
+    background-image: url(../img/logo-mh.svg);
     background-repeat: no-repeat;
     background-position: center;
     background-size: contain;
     height: 80px; }
-  .home-wrap header .site-nav ul {
-    list-style: none;
-    margin: 50px 0;
-    padding: 0 30px 0 0;
-    text-align: right; }
-    .home-wrap header .site-nav ul li {
-      margin-bottom: 7px; }
-      .home-wrap header .site-nav ul li:last-child {
-        margin-bottom: 0; }
-  .home-wrap header .mobile-nav-hmbrger {
+  .home-wrap header .site-nav {
+    height: 167px;
+    overflow: hidden;
+    -webkit-transform: translateY(0%);
+            transform: translateY(0%);
+    transition: height 0.3s ease-in-out;
+    transition: -webkit-transform 0.3s 0.3s;
+    transition: transform 0.3s 0.3s; }
+    .home-wrap header .site-nav ul {
+      list-style: none;
+      margin: 50px 0;
+      padding: 0 30px 0 0;
+      text-align: right; }
+      .home-wrap header .site-nav ul li {
+        margin-bottom: 7px; }
+        .home-wrap header .site-nav ul li:last-child {
+          margin-bottom: 0; }
+  .home-wrap header .mobile-nav-hamburger {
+    display: none;
     width: 30px;
     height: 30px;
     margin-right: 20px;
-    display: -ms-flexbox;
-    display: flex;
     -ms-flex-align: center;
-        align-items: center; }
-    .home-wrap header .mobile-nav-hmbrger span,
-    .home-wrap header .mobile-nav-hmbrger span::before,
-    .home-wrap header .mobile-nav-hmbrger span::after {
+        align-items: center;
+    cursor: pointer; }
+    .home-wrap header .mobile-nav-hamburger span,
+    .home-wrap header .mobile-nav-hamburger span::before,
+    .home-wrap header .mobile-nav-hamburger span::after {
       content: "";
       display: block;
       width: 100%;
       height: 2px;
       background: #252424;
-      position: relative; }
-    .home-wrap header .mobile-nav-hmbrger span::before {
+      position: relative;
+      transition: all 0.4s ease-in-out; }
+    .home-wrap header .mobile-nav-hamburger span::before {
       top: 10px; }
-    .home-wrap header .mobile-nav-hmbrger span::after {
-      bottom: 12px; }
+    .home-wrap header .mobile-nav-hamburger span::after {
+      top: -12px; }
+    .home-wrap header .mobile-nav-hamburger.is-open span {
+      background: transparent; }
+    .home-wrap header .mobile-nav-hamburger.is-open span::before,
+    .home-wrap header .mobile-nav-hamburger.is-open span::after {
+      -webkit-transform-origin: center;
+              transform-origin: center;
+      -webkit-transform: rotate(45deg);
+              transform: rotate(45deg);
+      top: 0; }
+    .home-wrap header .mobile-nav-hamburger.is-open span::before {
+      -webkit-transform: rotate(-45deg);
+              transform: rotate(-45deg); }
 
 @media (max-width: 775px) {
   .home-wrap header {
     width: auto;
-    padding: 20px 0; }
+    padding: 30px 0; }
     .home-wrap header .header-position {
       width: auto;
       position: relative;
@@ -519,13 +556,27 @@ body {
       left: auto;
       -ms-flex-direction: row;
           flex-direction: row;
-      -ms-flex-align: center;
-          align-items: center; }
-    .home-wrap header .site-nav, .home-wrap header .email-link {
+      -ms-flex-align: start;
+          align-items: flex-start; }
+    .home-wrap header .email-link {
       display: none; }
     .home-wrap header .logo {
       height: 40px;
-      width: 100px; } }
+      width: 100px; }
+    .home-wrap header .mobile-nav-hamburger {
+      display: -ms-flexbox;
+      display: flex; }
+      .home-wrap header .mobile-nav-hamburger.is-open ~ .site-nav {
+        -webkit-transform: translateY(-120%);
+                transform: translateY(-120%);
+        transition: -webkit-transform 0s ease-in-out;
+        transition: transform 0s ease-in-out;
+        height: 0px;
+        transition: height 1s ease-in-out; }
+    .home-wrap header .site-nav ul {
+      margin: 0; }
+    .home-wrap header .site-nav li {
+      text-align: center; } }
 
 .home-wrap {
   display: -ms-flexbox;
