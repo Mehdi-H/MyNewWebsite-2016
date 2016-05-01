@@ -567,7 +567,7 @@ body {
     .home-wrap header .mobile-nav-hamburger {
       display: -ms-flexbox;
       display: flex; }
-      .home-wrap header .mobile-nav-hamburger.is-open ~ .site-nav {
+      .home-wrap header .mobile-nav-hamburger.is-close ~ .site-nav {
         -webkit-transform: translateY(-120%);
                 transform: translateY(-120%);
         opacity: 0;
@@ -579,6 +579,36 @@ body {
       margin: 0; }
     .home-wrap header .site-nav li {
       text-align: center; } }
+
+section.hero {
+  background-color: #e2e9f2;
+  background-image: url(../img/about-bg-nb.jpg);
+  background-repeat: no-repeat;
+  background-position: 30% center;
+  background-size: contain; }
+  section.hero .flex {
+    -ms-flex-pack: center;
+        justify-content: center; }
+  section.hero .col-1 {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: column;
+        flex-direction: column;
+    -ms-flex-pack: start;
+        justify-content: flex-start; }
+    section.hero .col-1 h1 {
+      font-size: 40px;
+      font-weight: 400; }
+
+@media (max-width: 1200px) {
+  section.hero {
+    background-size: cover;
+    background-position: center bottom; }
+    section.hero .flex {
+      -ms-flex-pack: start;
+          justify-content: flex-start; }
+    section.hero .col-1 {
+      margin-left: 50%; } }
 
 .home-wrap {
   display: -ms-flexbox;
@@ -597,9 +627,10 @@ body {
     display: -ms-flexbox;
     display: flex;
     -ms-flex-direction: row;
-        flex-direction: row;
-    -ms-flex-pack: center;
-        justify-content: center; }
+        flex-direction: row; }
+  .home-sections .flex--flex-end {
+    -ms-flex-pack: end;
+        justify-content: flex-end; }
   .home-sections .flex--center {
     -ms-flex-pack: center;
         justify-content: center; }
@@ -614,7 +645,6 @@ body {
     -ms-flex-order: -1;
         order: -1; }
   .home-sections .col-1 {
-    background-color: red;
     max-width: 300px;
     margin: 0 10px; }
   .home-sections .col-2 {

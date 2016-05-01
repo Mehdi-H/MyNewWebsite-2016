@@ -1,0 +1,28 @@
+section.hero
+    background-color: $hero-bg-color
+    background:
+        image: url(#{$imgPath}/about-bg-nb.jpg)
+        repeat: no-repeat
+        position: 30% center
+        size: contain
+    .flex
+        justify-content: center
+    .col-1
+        display: flex
+        flex-direction: column
+        justify-content: flex-start
+        h1
+            font:
+                size: 40px
+                weight: 400
+
+
+@media (max-width: 1200px)
+    section.hero
+        background:
+            size: cover
+            position: center bottom
+        .flex
+            justify-content: flex-start
+        .col-1
+            margin-left: 50%
