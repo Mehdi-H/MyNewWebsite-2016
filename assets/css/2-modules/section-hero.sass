@@ -3,7 +3,7 @@ section.hero
     background:
         image: url(#{$imgPath}/about-bg-nb.jpg)
         repeat: no-repeat
-        position: 30% center
+        position: 25% center
         size: contain
     .flex
         justify-content: center
@@ -11,10 +11,15 @@ section.hero
         display: flex
         flex-direction: column
         justify-content: flex-start
+        padding-left: 170px
         h1
             font:
                 size: 40px
                 weight: 400
+            &::first-letter
+                text-transform: capitalize
+            &::after
+                content: ','
 
 
 @media (max-width: 1200px)
@@ -26,3 +31,16 @@ section.hero
             justify-content: flex-start
         .col-1
             margin-left: 50%
+            padding-left: 0
+
+@media (max-width: 600px)
+    section.hero .flex .col-1 h1
+        font:
+            size: 30px
+            weight: 400
+
+@media (max-width: 400px)
+    section.hero .flex .col-1 h1
+        font:
+            size: 22px
+            weight: 400
