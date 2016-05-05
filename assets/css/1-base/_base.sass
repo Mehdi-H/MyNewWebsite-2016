@@ -7,14 +7,14 @@ body
 
 .gigantic, .huge, .large, .bigger, .big,
 h1, h2, h3, h4, h5, h6
-  color: $accent-color
+  color: $hero-text-color
   font-weight: bold
   &::first-letter
       text-transform: capitalize
 
-h2
-    &::after
-        content: '...'
+h2, h1,p
+    &::before, &::after
+        content: ' ... '
 
 .gigantic
   font-size: 110px

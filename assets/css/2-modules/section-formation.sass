@@ -1,0 +1,44 @@
+#formation
+    padding: 0
+    overflow: hidden
+    background:
+        image: url(#{$imgPath}/formation-esiee-bg.JPG)
+        repeat: no-repeat
+        size: cover
+        attachement: fixed
+        position: top center
+    .flex
+        .col-1:first-child
+            display: flex
+            flex-direction: column
+            justify-content: space-between
+            align-items: center
+            >*
+                text-align: center
+                font:
+                    size: 30px
+                    weight: 400
+            .descriptor
+                color: white
+                font:
+                    size: 25px
+        .col-1:nth-child(2)
+            // padding: 0
+        .col-1
+            #vertical-slides
+                transform: translateY(-20%)
+                height: 400px
+                padding: 0
+                img
+                    width: 190px
+                    height: 125px
+                    &.svg
+                        height: 167px
+                    &.focus
+                        transform: scale(1.25)
+
+@media(max-width: 1200px)
+    #formation
+        background:
+            size: cover
+            position: center bottom

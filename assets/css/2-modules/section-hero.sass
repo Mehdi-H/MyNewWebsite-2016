@@ -1,4 +1,4 @@
-section.hero
+#about
     background-color: $hero-bg-color
     background:
         image: url(#{$imgPath}/about-bg-nb.jpg)
@@ -12,8 +12,12 @@ section.hero
         flex-direction: column
         justify-content: flex-start
         padding-left: 170px
+        .home-lead
+            display: inline-block
+        >*
+            &::before
+                content: ''
         h1
-            @include animation('fadeIn 2s')
             font:
                 size: 40px
                 weight: 400
@@ -27,7 +31,7 @@ section.hero
 
 
 @media (max-width: 1200px)
-    section.hero
+    #about
         background:
             size: cover
             position: center bottom
@@ -39,7 +43,7 @@ section.hero
             padding-left: 0
 
 @media (max-width: 600px)
-    section.hero .flex .col-1
+    #about .flex .col-1
         h1
             font:
                 size: 28px
@@ -50,7 +54,7 @@ section.hero
                 weight: 300
 
 @media (max-width: 400px)
-    section.hero .flex .col-1
+    #about .flex .col-1
         h1
             font:
                 size: 22px
@@ -59,11 +63,3 @@ section.hero
             font:
                 size: 15px
                 weight: 300
-
-// == Keyframes
-
-// @include keyframes(fadeIn)
-//   from
-//     @include transform(scale(0))
-//   to
-//     @include transform(scale(1))
