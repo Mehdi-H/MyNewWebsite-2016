@@ -1,13 +1,15 @@
 #formation
+    display: flex
     padding: 0
     overflow: hidden
     background:
         image: url(#{$imgPath}/formation-esiee-bg.JPG)
         repeat: no-repeat
-        size: 100% auto
+        size: cover
         attachement: fixed
         position: top center
     .flex
+        flex: 1
         .col-1:first-child
             display: flex
             flex-direction: column
@@ -26,6 +28,7 @@
             // padding: 0
         .col-1
             #slides
+                display: block
                 transform: translateY(-65%)
                 height: 450px
                 padding: 0
@@ -33,13 +36,14 @@
                 right: 0
                 bottom: 0
                 left: 0
+                position: relative
                 transition: all 0.3s ease-in-out
                 img
                     margin: 15px 0
                     width: 190px
                     height: 125px
                     cursor: pointer
-                    filter: grayscale(80%)
+                    filter: grayscale(90%)
                     &.svg
                         height: 167px
                     &.chevron
@@ -57,3 +61,28 @@
         background:
             size: cover
             position: center bottom
+        .flex
+            flex-direction: column
+            justify-content: space-between !important
+            align-items: center
+            .col-1
+                display: flex
+                &:first-child
+                    display: flex
+                &:last-child
+                    display: flex
+
+                    #slides
+                        display: flex !important
+                        flex-direction: row
+                        justify-content: center
+                        height: auto !important
+                        transform: translateY(0)
+                        transform: translateX(-40%)
+                    img
+                        margin: 0 20px !important
+                        &.chevron
+                            &:first-of-type
+                                transform: rotate(0deg) !important
+                            &:last-of-type
+                                transform: rotate(180deg) !important
