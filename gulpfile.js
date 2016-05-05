@@ -74,6 +74,15 @@ gulp.task('responsiveScripts', function() {
     .pipe(gulp.dest('assets/js'));
 });
 
+gulp.task('moduleScripts', function() {
+  return gulp.src('assets/js/modules/*.js')
+    .pipe(concat('modules.js'))
+    .pipe(uglify())
+    .pipe(gulp.dest('_site/assets/js'))
+    .pipe(browserSync.reload({stream:true}))
+    .pipe(gulp.dest('assets/js'));
+});
+
 /**
  * Watch scss files for changes & recompile
  * Watch html/md files, run jekyll & reload BrowserSync
@@ -81,7 +90,7 @@ gulp.task('responsiveScripts', function() {
 gulp.task('watch', function () {
     gulp.watch('assets/css/**', ['sass']);
     gulp.watch('_pugFiles/*.pug', ['pug']);
-    gulp.watch('assets/js/responsive/*.js', ['responsiveScripts']);
+    gulp.watch('assets/js/**/*.js', ['responsiveScripts', 'moduleScripts']);
     gulp.watch([
         '*.html',
         '_layouts/*.html',

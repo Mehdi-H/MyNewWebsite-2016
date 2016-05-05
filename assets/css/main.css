@@ -651,7 +651,7 @@ body {
   overflow: hidden;
   background-image: url(../img/formation-esiee-bg.JPG);
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: 100% auto;
   background-attachement: fixed;
   background-position: top center; }
   #formation .flex .col-1:first-child {
@@ -670,19 +670,37 @@ body {
     #formation .flex .col-1:first-child .descriptor {
       color: white;
       font-size: 25px; }
-  #formation .flex .col-1 #vertical-slides {
-    -webkit-transform: translateY(-20%);
-            transform: translateY(-20%);
-    height: 400px;
-    padding: 0; }
-    #formation .flex .col-1 #vertical-slides img {
+  #formation .flex .col-1 #slides {
+    -webkit-transform: translateY(-65%);
+            transform: translateY(-65%);
+    height: 450px;
+    padding: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    transition: all 0.3s ease-in-out; }
+    #formation .flex .col-1 #slides img {
+      margin: 15px 0;
       width: 190px;
-      height: 125px; }
-      #formation .flex .col-1 #vertical-slides img.svg {
+      height: 125px;
+      cursor: pointer;
+      -webkit-filter: grayscale(80%);
+              filter: grayscale(80%); }
+      #formation .flex .col-1 #slides img.svg {
         height: 167px; }
-      #formation .flex .col-1 #vertical-slides img.focus {
+      #formation .flex .col-1 #slides img.chevron:first-of-type {
+        -webkit-transform: rotate(90deg);
+                transform: rotate(90deg); }
+      #formation .flex .col-1 #slides img.chevron:last-of-type {
+        -webkit-transform: rotate(-90deg);
+                transform: rotate(-90deg); }
+      #formation .flex .col-1 #slides img.focus {
         -webkit-transform: scale(1.25);
-                transform: scale(1.25); }
+                transform: scale(1.25);
+        -webkit-filter: none;
+                filter: none;
+        transition: all 0.3s ease-in-out; }
 
 @media (max-width: 1200px) {
   #formation {
