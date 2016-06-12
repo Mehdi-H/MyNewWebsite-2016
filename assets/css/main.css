@@ -760,7 +760,7 @@ body {
 
 @media (max-width: 640px) {
   #formation .col-1:first-child {
-    width: 90%;
+    width: 70%;
     max-width: 100% !important; }
   #formation img {
     width: 8em;
@@ -803,7 +803,7 @@ body {
     -ms-flex-align: end;
         align-items: flex-end;
     color: white;
-    padding: 0 3em;
+    padding: 0 2em;
     height: 2em;
     background-image: url("../img/competences/tab.png");
     background-repeat: no-repeat;
@@ -818,13 +818,19 @@ body {
       background-image: url("../img/competences/tab-active.png"); }
   #competences .col-1 {
     width: 400px; }
+  #competences .flex--center {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-align: center;
+        align-items: center; }
   #competences .editor {
     padding: 0.5em 0;
-    background-image: url("../img/competences/line-sep.png"), url("../img/competences/editor-bg.png");
+    background-image: url("../img/competences/line-sep.svg"), url("../img/competences/editor-bg.png");
     background-repeat: no-repeat, no-repeat;
-    background-size: contain, cover;
+    background-size: 1em 100%, cover;
     background-position: 4.5em 0, center center; }
   #competences .histo {
+    padding: 3em;
     width: 100%;
     height: auto; }
   #competences .descriptor {
@@ -832,11 +838,39 @@ body {
     text-align: center;
     color: white;
     font-size: 2em; }
+  #competences .tabContent {
+    display: none; }
+    #competences .tabContent.active {
+      display: block; }
 
 @media (min-width: 1900px) {
   #competences .col-1 {
     max-width: 500px;
     width: 500px; } }
+
+@media (max-width: 1000px) {
+  #competences .flex--center {
+    -ms-flex-direction: column;
+        flex-direction: column; }
+  #competences .tabContent {
+    display: block; }
+  #competences .tabs {
+    display: none; }
+  #competences .order1 {
+    -ms-flex-order: 1;
+        order: 1; }
+  #competences .order2 {
+    -ms-flex-order: 2;
+        order: 2; }
+  #competences .histo {
+    padding: 0; }
+  #competences .col-1 {
+    width: 300px; }
+  #competences .editor {
+    background-image: url("../img/competences/editor-bg.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center; } }
 
 .home-wrap {
   display: -ms-flexbox;

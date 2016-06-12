@@ -16,7 +16,7 @@
         flex-direction: row
         align-items: flex-end
         color: white
-        padding: 0 3em
+        padding: 0 2em
         height: 2em
         background:
             image: url('../img/competences/tab.png')
@@ -30,17 +30,22 @@
             position: relative
             z-index: 1
             background-image: url('../img/competences/tab-active.png')
+
     .col-1
         width: 400px
+    .flex--center
+        display: flex
+        align-items: center
     .editor
         padding: 0.5em 0
         background:
-            image: url('../img/competences/line-sep.png'),          url('../img/competences/editor-bg.png')
+            image: url('../img/competences/line-sep.svg'),          url('../img/competences/editor-bg.png')
             repeat: no-repeat, no-repeat
-            size: contain, cover
+            size: 1em 100%, cover
             position: 4.5em 0, center center
 
     .histo
+        padding: 3em
         width: 100%
         height: auto
 
@@ -50,8 +55,37 @@
         color: white
         font-size: 2em
 
+    .tabContent
+        display: none
+        &.active
+            display: block
+
 @media (min-width: 1900px)
     #competences
         .col-1
             max-width: 500px
             width: 500px
+
+@media (max-width: 1000px)
+    #competences
+        .flex--center
+            flex-direction: column
+            // align-items: flex-start
+        .tabContent
+            display: block
+        .tabs
+            display: none
+        .order1
+            order: 1
+        .order2
+            order: 2
+        .histo
+            padding: 0
+        .col-1
+            width: 300px
+        .editor
+            background:
+                image:        url('../img/competences/editor-bg.png')
+                repeat: no-repeat
+                size: cover
+                position: center center
