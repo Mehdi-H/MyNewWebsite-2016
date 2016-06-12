@@ -1,6 +1,7 @@
 #competences
     padding: 0
     background-color: black
+    color: white
     .tabs
         display: flex
         flex-direction: row
@@ -10,7 +11,6 @@
         padding-top: 1em
         &:first-child
             margin-left: 3.5em
-    li
     .tabLink
         display: flex
         flex-direction: row
@@ -30,3 +30,28 @@
             position: relative
             z-index: 1
             background-image: url('../img/competences/tab-active.png')
+    .col-1
+        width: 400px
+    .editor
+        padding: 0.5em 0
+        background:
+            image: url('../img/competences/line-sep.png'),          url('../img/competences/editor-bg.png')
+            repeat: no-repeat, no-repeat
+            size: contain, cover
+            position: 4.5em 0, center center
+
+    .histo
+        width: 100%
+        height: auto
+
+    .descriptor
+        padding: 1em
+        text-align: center
+        color: white
+        font-size: 2em
+
+@media (min-width: 1900px)
+    #competences
+        .col-1
+            max-width: 500px
+            width: 500px

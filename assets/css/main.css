@@ -781,7 +781,8 @@ body {
 
 #competences {
   padding: 0;
-  background-color: black; }
+  background-color: black;
+  color: white; }
   #competences .tabs {
     display: -ms-flexbox;
     display: flex;
@@ -815,6 +816,27 @@ body {
       position: relative;
       z-index: 1;
       background-image: url("../img/competences/tab-active.png"); }
+  #competences .col-1 {
+    width: 400px; }
+  #competences .editor {
+    padding: 0.5em 0;
+    background-image: url("../img/competences/line-sep.png"), url("../img/competences/editor-bg.png");
+    background-repeat: no-repeat, no-repeat;
+    background-size: contain, cover;
+    background-position: 4.5em 0, center center; }
+  #competences .histo {
+    width: 100%;
+    height: auto; }
+  #competences .descriptor {
+    padding: 1em;
+    text-align: center;
+    color: white;
+    font-size: 2em; }
+
+@media (min-width: 1900px) {
+  #competences .col-1 {
+    max-width: 500px;
+    width: 500px; } }
 
 .home-wrap {
   display: -ms-flexbox;
@@ -848,17 +870,16 @@ body {
     -ms-flex-order: -1;
         order: -1; }
   .home-sections .col-1 {
-    max-width: 300px;
+    max-width: 400px;
     margin: 0 10px; }
   .home-sections .col-2 {
-    max-width: 620px;
+    max-width: 820px;
     margin: 0 10px;
     background-color: honeydew; }
   .home-sections .col-50 {
-    width: 50%;
-    background-color: deeppink; }
+    width: 50%; }
 
-@media (max-width: 640px) {
+@media (max-width: 840px) {
   .home-sections .flex {
     display: block; }
   .home-sections #about .col-1 {
