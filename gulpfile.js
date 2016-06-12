@@ -47,6 +47,7 @@ gulp.task('sass', function () {
     return gulp.src('assets/css/main.scss')
         .pipe(sass({
             includePaths: ['css'],
+            errLogToConsole: true,
             onError: browserSync.notify
         }))
         .pipe(prefix(['last 15 versions', '> 1%', 'ie 8', 'ie 7'], { cascade: true }))
@@ -95,7 +96,8 @@ gulp.task('watch', function () {
         '*.html',
         '_layouts/*.html',
         '_posts/*',
-        '_includes/*'  // watch the newly compiled html files.
+        '_includes/*',  // watch the newly compiled html files.
+        '*.json'
     ], ['jekyll-rebuild']);
 });
 
@@ -103,4 +105,4 @@ gulp.task('watch', function () {
  * Default task, running just `gulp` will compile the sass,
  * compile the jekyll site, launch BrowserSync & watch files.
  */
-gulp.task('default', ['browser-sync', 'responsiveScripts', 'watch']);
+gulp.task('default', ['browser-sync', 'watch']);

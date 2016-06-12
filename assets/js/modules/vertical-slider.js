@@ -5,6 +5,18 @@ $(document).on('ready', function () {
     var $goalPos = $('img.focus').offset();
     var direction = $(window).width() < 1200 ? 'left' : 'top';
     $slides.slideOn(slides = $slides, initPos = $initPos, goalPos  = $goalPos, direction = direction);
+    var formation;
+    $.getJSON('assets/js/modules/formation.json', function (data) {
+        formation = data.formation;
+    });
+    $slides.find('img').on('click', function () {
+        var imgFormation = $('.focus').attr('src').split('/').pop().split('.').shift();
+
+        $('.formation')
+            .find('.lead').html(formation[imgFormation].lead);
+        $('.formation')
+            .find('.descriptor').html(formation[imgFormation].descriptor);
+    });
 });
 
 /**

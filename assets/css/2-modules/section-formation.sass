@@ -10,51 +10,56 @@
         position: top center
     .flex
         flex: 1
-        .col-1:first-child
-            display: flex
-            flex-direction: column
-            justify-content: space-between
-            align-items: center
-            >*
-                text-align: center
-                font:
-                    size: 30px
-                    weight: 400
-            .descriptor
-                color: white
-                font:
-                    size: 25px
-        .col-1:nth-child(2)
-            // padding: 0
-        .col-1
-            #slides
-                display: block
-                transform: translateY(-65%)
-                height: 450px
-                padding: 0
-                top: 0
-                right: 0
-                bottom: 0
-                left: 0
-                position: relative
-                transition: all 0.3s ease-in-out
-                img
-                    margin: 15px 0
-                    width: 190px
-                    height: 125px
-                    cursor: pointer
-                    filter: grayscale(90%)
-                    &.svg
-                        height: 167px
-                    &.chevron
-                        &:first-of-type
-                            transform: rotate(90deg)
-                        &:last-of-type
-                            transform: rotate(-90deg)
-                    &.focus
-                        transform: scale(1.25)
-                        filter: none
-                        transition: all 0.3s ease-in-out
+    .col-1:first-child
+        display: flex
+        flex-direction: column
+        justify-content: space-between
+        align-items: center
+        >*
+            text-align: center
+            font:
+                size: 30px
+                weight: 400
+    .descriptor
+        color: white
+        font:
+            size: 25px
+    .col-1:nth-child(2)
+        // padding: 0
+    .col-1
+
+    .lead
+        &::first-letter
+            text-transform: capitalize
+
+    #slides
+        display: block
+        transform: translateY(-65%)
+        height: 450px
+        padding: 0
+        top: 0
+        right: 0
+        bottom: 0
+        left: 0
+        position: relative
+        transition: all 0.3s ease-in-out
+    img
+        margin: 15px 0
+        width: 15em
+        height: 10em
+        cursor: pointer
+        filter: grayscale(90%)
+        &.svg
+            height: 12em
+        &.chevron
+            &.chevron-top
+                transform: rotate(90deg)
+            &.chevron-bottom
+                transform: rotate(-90deg)
+        &.focus
+            transform: scale(1.25)
+            filter: none
+            transition: all 0.3s ease-in-out
 
 @media(max-width: 1200px)
     #formation
@@ -65,24 +70,51 @@
             flex-direction: column
             justify-content: space-between !important
             align-items: center
-            .col-1
+        .col-1
+            display: flex
+            &:first-child
                 display: flex
-                &:first-child
-                    display: flex
-                &:last-child
-                    display: flex
+            &:last-child
+                display: flex
 
-                    #slides
-                        display: flex !important
-                        flex-direction: row
-                        justify-content: center
-                        height: auto !important
-                        transform: translateY(0)
-                        transform: translateX(-40%)
-                    img
-                        margin: 0 20px !important
-                        &.chevron
-                            &:first-of-type
-                                transform: rotate(0deg) !important
-                            &:last-of-type
-                                transform: rotate(180deg) !important
+        #slides
+            display: flex
+            flex-direction: row
+            justify-content: center
+            height: auto
+            transform: translateY(0)
+            transform: translateX(-40%)
+
+        li
+            flex: 1
+
+        img
+            margin: 0 20px !important
+            &.chevron
+                &.chevron-top
+                    transform: rotate(0deg)
+                &.chevron-bottom
+                    transform: rotate(180deg)
+
+@media(max-width: 640px)
+    #formation
+        .col-1:first-child
+            width: 90%
+            max-width: 100% !important
+        img
+            width: 8em
+            height: 5em
+            &.svg
+                height: 5em
+        #slides
+            margin-left: 15em
+
+@media(max-width: 500px)
+    #formation
+        img
+            width: 6em
+            height: 4em
+            &.svg
+                height: 4em
+        #slides
+            margin-left: 4em
