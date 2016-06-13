@@ -823,6 +823,9 @@ body {
     display: flex;
     -ms-flex-align: center;
         align-items: center; }
+    #competences .flex--center:nth-child(2) .histo {
+      -webkit-transform-origin: right;
+              transform-origin: right; }
   #competences .editor {
     padding: 0.5em 0;
     background-image: url("../img/competences/line-sep.svg"), url("../img/competences/editor-bg.png");
@@ -832,7 +835,15 @@ body {
   #competences .histo {
     padding: 3em;
     width: 100%;
-    height: auto; }
+    height: auto;
+    -webkit-transform: scale(1);
+            transform: scale(1);
+    transition: all 0.4s ease-in-out; }
+    #competences .histo:hover, #competences .histo:active {
+      -webkit-transform-origin: left;
+              transform-origin: left;
+      -webkit-transform: scale(1.4);
+              transform: scale(1.4); }
   #competences .descriptor {
     padding: 1em;
     text-align: center;
@@ -864,6 +875,9 @@ body {
         order: 2; }
   #competences .histo {
     padding: 0; }
+    #competences .histo:hover, #competences .histo:active {
+      -webkit-transform: scale(1);
+              transform: scale(1); }
   #competences .col-1 {
     width: 300px; }
   #competences .editor {
@@ -871,6 +885,76 @@ body {
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center center; } }
+
+#work {
+  padding: 0; }
+  #work .flex {
+    padding: 0; }
+  #work .col-1 {
+    -ms-flex: 1;
+        flex: 1;
+    padding: 5em 7em;
+    margin: 0;
+    max-width: none; }
+  #work #xp-pro, #work #xp-etudiant {
+    background-color: peachpuff;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-pack: center;
+        justify-content: center;
+    position: relative;
+    display: flex;
+    -ms-flex-direction: row;
+        flex-direction: row;
+    -ms-flex-pack: center;
+        justify-content: center;
+    -ms-flex-align: center;
+        align-items: center;
+    width: 250px;
+    height: 200px;
+    -webkit-perspective: 500px;
+            perspective: 500px; }
+    #work #xp-pro img, #work #xp-etudiant img {
+      position: relative;
+      z-index: 50;
+      max-width: 12.1em;
+      max-height: 10.5em;
+      -webkit-transform: rotateY(50deg) translateX(0px);
+              transform: rotateY(50deg) translateX(0px);
+      transition: all 0.5s ease-in-out;
+      cursor: pointer;
+      box-shadow: 0 0px 0px black; }
+      #work #xp-pro img.active, #work #xp-etudiant img.active {
+        z-index: 55;
+        position: relative;
+        -webkit-transform: rotateY(0deg) translateX(0px);
+                transform: rotateY(0deg) translateX(0px);
+        margin: 0 -2em; }
+        #work #xp-pro img.active ~ img, #work #xp-etudiant img.active ~ img {
+          -webkit-transform: rotateY(-50deg) translateX(0px);
+                  transform: rotateY(-50deg) translateX(0px); }
+      #work #xp-pro img:first-child, #work #xp-pro img:last-child, #work #xp-etudiant img:first-child, #work #xp-etudiant img:last-child {
+        z-index: 45; }
+      #work #xp-pro img:hover, #work #xp-etudiant img:hover {
+        -webkit-transform: rotateY(0deg) scale(1.2) !important;
+                transform: rotateY(0deg) scale(1.2) !important;
+        z-index: 60;
+        box-shadow: 0 5px 16px black;
+        max-width: 200px; }
+      #work #xp-pro img ~ label, #work #xp-etudiant img ~ label {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        text-align: center;
+        width: 100%;
+        margin: 0.5em 0;
+        color: white;
+        font-weight: bold;
+        font-size: 1.5em; }
+        #work #xp-pro img ~ label::first-letter, #work #xp-etudiant img ~ label::first-letter {
+          text-transform: capitalize; }
+  #work #xp-etudiant {
+    background-color: sandybrown; }
 
 .home-wrap {
   display: -ms-flexbox;

@@ -36,6 +36,9 @@
     .flex--center
         display: flex
         align-items: center
+        &:nth-child(2) .histo
+            transform-origin: right
+
     .editor
         padding: 0.5em 0
         background:
@@ -48,6 +51,11 @@
         padding: 3em
         width: 100%
         height: auto
+        transform: scale(1)
+        transition: all 0.4s ease-in-out
+        &:hover, &:active
+            transform-origin: left
+            transform: scale(1.4)
 
     .descriptor
         padding: 1em
@@ -81,6 +89,8 @@
             order: 2
         .histo
             padding: 0
+            &:hover, &:active
+                transform: scale(1)
         .col-1
             width: 300px
         .editor
