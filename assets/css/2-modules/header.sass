@@ -10,9 +10,13 @@ $hamburgerH: 30px
 
 // = Home page wrapper
 .home-wrap
+
+    .email-link
+        +hide-text
     // = Header
     header
         width: $header-width
+        max-width: $header-width
         background: white
         padding: $header-padding 0
 
@@ -118,6 +122,7 @@ $hamburgerH: 30px
         header
             width: auto
             padding: 15px 0
+            max-width: none
 
             .header-position
                 width: auto

@@ -8,7 +8,7 @@
         margin: 0
         max-width: none
     #xp-pro, #xp-etudiant
-        background-color: peachpuff
+        background-color: #963254
         display: flex
         justify-content: center
         position: relative
@@ -28,6 +28,7 @@
             transition: all 0.5s ease-in-out
             cursor: pointer
             box-shadow: 0 0px 0px rgba(0,0,0,1)
+            background-color: white
             &.active
                 z-index: 55
                 position: relative
@@ -49,11 +50,32 @@
                 text-align: center
                 width: 100%
                 margin: 0.5em 0
+                padding: 0 1em
                 color: white
+                box-sizing: border-box
                 font:
                     weight: bold
                     size: 1.5em
                 &::first-letter
                     text-transform: capitalize
     #xp-etudiant
-        background-color: sandybrown
+        background-color: #AA5A39
+
+@media (max-width: 1000px)
+    #work .flex
+        display: flex
+        flex-direction: column
+        #xp-pro, #xp-etudiant
+            width: auto
+
+@media (max-width: 500px)
+    #work
+        img
+            margin-top: -5em !important
+        // label
+        //     font-size: 1.3em !important
+
+@media (max-width: 420px)
+    #work img
+        max-width: 10.1em !important
+        max-height: 8.5em !important
